@@ -12,6 +12,7 @@ collections:
       - name: "sections"
         label: "All Sections"
         file: "src/data/sections.json"
+        format: "json"
         fields:
           # ---- HERO ----
           - label: "Hero"
