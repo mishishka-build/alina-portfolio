@@ -1,0 +1,87 @@
+---
+interface VideoItem {
+  title: string;
+  youtubeId: string;
+}
+
+interface Props {
+  type: 'video-single' | 'video-row' | 'video-with-images';
+  title?: string;
+  subtitle?: string;
+  youtubeId?: string;
+  items?: VideoItem[];
+  imageFolder?: string;
+  images?: string[];
+  gridColumns?: number;
+}
+
+const { type, title, subtitle, youtubeId, items, imageFolder, images, gridColumns = 2 } = Astro.props;
+
+const colsClass = gridColumns === 3 ? 'cols-3' : 'cols-2';
+---
+
+{type === 'video-single' && (
+  <section class="video-section" id={title?.toLowerCase().replace(/\s+/g, '-')}>
+    {title && <h2 class="section-title-medium">{title}</h2>}
+    <div class="video-embed">
+      <iframe
+        src={`https://www.youtube.com/embed/${youtubeId}`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+)}
+
+{type === 'video-row' && (
+  <section class="video-row-section">
+    <div class="two-col" style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      {items?.map((item: VideoItem) => (
+        <div>
+          <h2 class="section-title-medium">{item.title}</h2>
+          <div class="video-embed">
+            <iframe
+              src={`https://www.youtube.com/embed/${item.youtubeId}`}
+              title={item.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+{type === 'video-with-images' && (
+  <section class="video-images-section" id={title?.toLowerCase().replace(/\s+/g, '-')}>
+    <h2 class="section-title-medium">{title}</h2>
+    {subtitle && <p class="section-subtitle">{subtitle}</p>}
+    {youtubeId && (
+      <div class="video-embed">
+        <iframe
+          src={`https://www.youtube.com/embed/${youtubeId}`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    )}
+    {images && images.length > 0 && (
+      <div class={`image-grid ${colsClass}`}>
+        {images.map((img: string) => (
+          <img src={`${imageFolder}${img}`} alt={`${title} - ${img}`} loading="lazy" />
+        ))}
+      </div>
+    )}
+  </section>
+)}
+
+<style>
+  .video-section,
+  .video-row-section,
+  .video-images-section {
+    margin-bottom: 48px;
+  }
+</style>

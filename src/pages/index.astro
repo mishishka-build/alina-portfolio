@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import ImageGridSection from '../components/ImageGridSection.astro';
+import VideoSection from '../components/VideoSection.astro';
+import SlideshowSection from '../components/SlideshowSection.astro';
+import data from '../data/sections.json';
+---
+<Layout title="alinenigam">
+
+  <HeroSection hero={data.hero} />
+
+  {data.sections.map((section) => {
+    if (section.type === 'divider') {
+      return <SectionDivider title={section.title} />;
+    }
+
+    if (section.type === 'image-grid') {
+      return (
+        <ImageGridSection
+          id={section.id}
+          title={section.title}
+          titleSize={section.titleSize}
+          subtitle={section.subtitle}
+          columns={section.columns}
+          imageFolder={section.imageFolder}
+          images={section.images}
+        />
+      );
+    }
+
+    if (section.type === 'two-column') {
+      return (
+        <section class="two-col-section" style="display:grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px;">
+          {section.columns.map((col) => (
+            <div>
+              <h3 class={col.titleSize === 'small' ? 'section-title-small' : 'section-title-medium'}>{col.title}</h3>
+              <div class={`image-grid cols-${col.gridColumns}`}>
+                {col.images.map((img) => (
+                  <img src={`${col.imageFolder}${img}`} alt={`${col.title} - ${img}`} loading="lazy" />
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      );
+    }
+
+    if (section.type === 'slideshow') {
+      return (
+        <SlideshowSection
+          id={section.id}
+          title={section.title}
+          imageFolder={section.imageFolder}
+          images={section.images}
+          youtubeId={section.youtubeId}
+        />
+      );
+    }
+
+    if (section.type === 'video-single' || section.type === 'video-row' || section.type === 'video-with-images') {
+      return (
+        <VideoSection
+          type={section.type}
+          title={section.title}
+          subtitle={section.subtitle}
+          youtubeId={section.youtubeId}
+          items={section.items}
+          imageFolder={section.imageFolder}
+          images={section.images}
+          gridColumns={section.gridColumns}
+        />
+      );
+    }
+
+    return null;
+  })}
+
+</Layout>

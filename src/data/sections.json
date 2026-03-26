@@ -1,0 +1,189 @@
+{
+  "hero": {
+    "name": "I'M ALINA",
+    "photo": "/images/hero/profile.png",
+    "resumeCurrent": [
+      "2025-now: Ceramic artist — Kisken Tan, my own brand",
+      "2024-now: Clothing design/art direction — freelance"
+    ],
+    "resumePast": [
+      "2024-2025: Clothing designer — Wildberries brand",
+      "2021-2024: style for ads, short films and music videos — freelance",
+      "2019-2021: Clothing designer — Zidans, specialized sportswear brand (ballet, swimwear, yoga, gym)",
+      "2018-2019: Clothing designer — Zolla, mass-market fashion brand",
+      "2018: Fashion design intern — Alena Akhmadullina, Moscow",
+      "2016-2017: Founder's assistant — Popmolly, local brand (launch phase)"
+    ],
+    "quote": "Clothing has always felt deeply personal to me, and I believe in its power—not just as something we wear, but as a force that shapes how we feel, move, and present ourselves to the world"
+  },
+  "sections": [
+    {
+      "id": "fashion",
+      "type": "divider",
+      "title": "FASHION"
+    },
+    {
+      "id": "zidans",
+      "type": "image-grid",
+      "title": "ZIDANS",
+      "titleSize": "large",
+      "columns": 4,
+      "imageFolder": "/images/zidans/",
+      "images": [
+        "01.jpg","02.jpg","03.jpg","04.jpg",
+        "05.jpg","06.jpg","07.jpg","08.jpg",
+        "09.jpg","10.jpg","11.jpg","12.jpg",
+        "13.jpg","14.jpg","15.jpg","16.jpg",
+        "17.jpg","18.jpg","19.jpg","20.jpg",
+        "21.jpg","22.jpg","23.jpg","24.jpg",
+        "25.jpg","26.jpg","27.jpg"
+      ]
+    },
+    {
+      "id": "prints-and-sketches",
+      "type": "two-column",
+      "columns": [
+        {
+          "title": "PRINTS",
+          "titleSize": "small",
+          "gridColumns": 2,
+          "imageFolder": "/images/prints/",
+          "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg"]
+        },
+        {
+          "title": "TECHNICAL SKETCHES",
+          "titleSize": "small",
+          "gridColumns": 2,
+          "imageFolder": "/images/technical-sketches/",
+          "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg"]
+        }
+      ]
+    },
+    {
+      "id": "popmolly",
+      "type": "image-grid",
+      "title": "POPMOLLY",
+      "titleSize": "medium",
+      "columns": 4,
+      "imageFolder": "/images/popmolly/",
+      "images": [
+        "01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg",
+        "08.jpg","09.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg",
+        "15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg"
+      ]
+    },
+    {
+      "id": "mockups",
+      "type": "image-grid",
+      "title": "MOCKUPS",
+      "titleSize": "small",
+      "columns": 4,
+      "imageFolder": "/images/mockups/",
+      "images": [
+        "01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg",
+        "08.jpg","09.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg",
+        "15.jpg","16.jpg","17.jpg","18.jpg"
+      ]
+    },
+    {
+      "id": "sketches-watercolor",
+      "type": "image-grid",
+      "title": "SKETCHES",
+      "titleSize": "small",
+      "columns": 3,
+      "imageFolder": "/images/sketches-1/",
+      "images": ["01.jpg","02.jpg","03.jpg"]
+    },
+    {
+      "id": "sketches-fashion",
+      "type": "divider",
+      "title": "SKETCHES"
+    },
+    {
+      "id": "sketches-fashion-images",
+      "type": "image-grid",
+      "title": "",
+      "titleSize": "none",
+      "columns": 3,
+      "imageFolder": "/images/sketches-2/",
+      "images": [
+        "01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg",
+        "08.jpg","09.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg",
+        "15.jpg","16.jpg","17.jpg"
+      ]
+    },
+    {
+      "id": "advertising",
+      "type": "divider",
+      "title": "ADVERTISING"
+    },
+    {
+      "id": "exeed",
+      "type": "slideshow",
+      "title": "EXEED LX",
+      "titleSize": "medium",
+      "imageFolder": "/images/exeed/",
+      "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg"],
+      "youtubeId": "ewbGDStBcXE"
+    },
+    {
+      "id": "vivo-openbank",
+      "type": "video-row",
+      "items": [
+        { "title": "VIVO", "youtubeId": "E8E-DDY_Hz8" },
+        { "title": "OPEN BANK", "youtubeId": "MD6erBbydTQ" }
+      ]
+    },
+    {
+      "id": "minimi",
+      "type": "video-single",
+      "title": "MINIMI",
+      "youtubeId": "9ouJzaJx36o"
+    },
+    {
+      "id": "art-projects",
+      "type": "divider",
+      "title": "ART PROJECTS"
+    },
+    {
+      "id": "yana-maron",
+      "type": "video-with-images",
+      "title": "YANA MARON",
+      "subtitle": "MUSIC VIDEO",
+      "youtubeId": "bJhFtJ7CHy4",
+      "imageFolder": "/images/yana-maron/",
+      "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg"],
+      "gridColumns": 3
+    },
+    {
+      "id": "fucking-birthday",
+      "type": "image-grid",
+      "title": "FUCKING BIRTHDAY",
+      "subtitle": "PHOTOSHOOT",
+      "titleSize": "medium",
+      "columns": 3,
+      "imageFolder": "/images/fucking-birthday/",
+      "images": ["01.jpg","02.jpg","03.jpg"]
+    },
+    {
+      "id": "oqjav",
+      "type": "video-with-images",
+      "title": "OQJAV",
+      "subtitle": "MUSIC VIDEO",
+      "youtubeId": "VopcuxrYft4",
+      "imageFolder": "/images/oqjav/",
+      "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg"],
+      "gridColumns": 2
+    },
+    {
+      "id": "lucidvox",
+      "type": "video-with-images",
+      "title": "LUCIDVOX",
+      "subtitle": "MUSIC VIDEO",
+      "youtubeId": "",
+      "imageFolder": "/images/lucidvox/",
+      "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg"],
+      "gridColumns": 2
+    }
+  ]
+}

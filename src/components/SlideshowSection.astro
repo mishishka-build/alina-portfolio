@@ -1,0 +1,66 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  imageFolder: string;
+  images: string[];
+  youtubeId?: string;
+}
+
+const { id, title, imageFolder, images, youtubeId } = Astro.props;
+---
+<section class="slideshow-section" id={id}>
+  <h2 class="section-title-medium">{title}</h2>
+
+  <div class="slideshow" data-slideshow>
+    <div class="slideshow-track" data-track>
+      {images.map((img: string, i: number) => (
+        <img src={`${imageFolder}${img}`} alt={`${title} slide ${i + 1}`} loading="lazy" />
+      ))}
+    </div>
+    <div class="slideshow-counter">
+      <span data-current>1</span>/{images.length}
+    </div>
+    <div class="slideshow-controls">
+      <button data-prev aria-label="Previous slide">‹</button>
+      <button data-next aria-label="Next slide">›</button>
+    </div>
+  </div>
+
+  {youtubeId && (
+    <div class="video-embed" style="margin-top: 16px;">
+      <iframe
+        src={`https://www.youtube.com/embed/${youtubeId}`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  )}
+</section>
+
+<script>
+  document.querySelectorAll('[data-slideshow]').forEach(slideshow => {
+    const track = slideshow.querySelector('[data-track]') as HTMLElement;
+    const counter = slideshow.querySelector('[data-current]')!;
+    const prevBtn = slideshow.querySelector('[data-prev]')!;
+    const nextBtn = slideshow.querySelector('[data-next]')!;
+    const totalSlides = track.children.length;
+    let current = 0;
+
+    function goTo(index: number) {
+      current = ((index % totalSlides) + totalSlides) % totalSlides;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      counter.textContent = String(current + 1);
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+  });
+</script>
+
+<style>
+  .slideshow-section {
+    margin-bottom: 48px;
+  }
+</style>

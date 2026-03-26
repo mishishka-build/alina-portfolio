@@ -1,0 +1,7 @@
+---
+const { title } = Astro.props;
+---
+<div class="section-divider" id={title.toLowerCase().replace(/\s+/g, '-')}>
+  <span class="section-category">{title}</span>
+  <div class="line"></div>
+</div>

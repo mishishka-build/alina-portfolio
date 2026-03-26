@@ -1,0 +1,159 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "sections"
+        label: "All Sections"
+        file: "src/data/sections.json"
+        fields:
+          # ---- HERO ----
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - label: "Current Roles"
+                name: "resumeCurrent"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+              - label: "Past Roles"
+                name: "resumePast"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+              - { label: "Quote", name: "quote", widget: "text" }
+
+          # ---- SECTIONS ----
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            types:
+              # Divider section
+              - label: "Section Divider"
+                name: "divider"
+                widget: "object"
+                fields:
+                  - { label: "ID", name: "id", widget: "string" }
+                  - { label: "Type", name: "type", widget: "hidden", default: "divider" }
+                  - { label: "Title", name: "title", widget: "string" }
+
+              # Image Grid
+              - label: "Image Grid"
+                name: "image-grid"
+                widget: "object"
+                fields:
+                  - { label: "ID", name: "id", widget: "string" }
+                  - { label: "Type", name: "type", widget: "hidden", default: "image-grid" }
+                  - { label: "Title", name: "title", widget: "string", required: false }
+                  - label: "Title Size"
+                    name: "titleSize"
+                    widget: "select"
+                    options: ["large", "medium", "small", "none"]
+                    default: "medium"
+                  - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+                  - label: "Columns"
+                    name: "columns"
+                    widget: "number"
+                    min: 2
+                    max: 4
+                    default: 4
+                  - { label: "Image Folder", name: "imageFolder", widget: "string" }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    field: { label: "Filename", name: "filename", widget: "image" }
+
+              # Two Column
+              - label: "Two Column"
+                name: "two-column"
+                widget: "object"
+                fields:
+                  - { label: "ID", name: "id", widget: "string" }
+                  - { label: "Type", name: "type", widget: "hidden", default: "two-column" }
+                  - label: "Columns"
+                    name: "columns"
+                    widget: "list"
+                    max: 2
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - label: "Title Size"
+                        name: "titleSize"
+                        widget: "select"
+                        options: ["large", "medium", "small"]
+                        default: "small"
+                      - { label: "Grid Columns", name: "gridColumns", widget: "number", min: 2, max: 4, default: 2 }
+                      - { label: "Image Folder", name: "imageFolder", widget: "string" }
+                      - label: "Images"
+                        name: "images"
+                        widget: "list"
+                        field: { label: "Filename", name: "filename", widget: "image" }
+
+              # Slideshow
+              - label: "Slideshow"
+                name: "slideshow"
+                widget: "object"
+                fields:
+                  - { label: "ID", name: "id", widget: "string" }
+                  - { label: "Type", name: "type", widget: "hidden", default: "slideshow" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Title Size", name: "titleSize", widget: "select", options: ["large","medium","small"], default: "medium" }
+                  - { label: "Image Folder", name: "imageFolder", widget: "string" }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    field: { label: "Filename", name: "filename", widget: "image" }
+                  - { label: "YouTube Video ID", name: "youtubeId", widget: "string", required: false }
+
+              # Video Single
+              - label: "Video (Single)"
+                name: "video-single"
+                widget: "object"
+                fields:
+                  - { label: "ID", name: "id", widget: "string" }
+                  - { label: "Type", name: "type", widget: "hidden", default: "video-single" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "YouTube Video ID", name: "youtubeId", widget: "string" }
+
+              # Video Row (side by side)
+              - label: "Video Row"
+                name: "video-row"
+                widget: "object"
+                fields:
+                  - { label: "ID", name: "id", widget: "string" }
+                  - { label: "Type", name: "type", widget: "hidden", default: "video-row" }
+                  - label: "Videos"
+                    name: "items"
+                    widget: "list"
+                    max: 2
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "YouTube Video ID", name: "youtubeId", widget: "string" }
+
+              # Video with Image Gallery
+              - label: "Video + Images"
+                name: "video-with-images"
+                widget: "object"
+                fields:
+                  - { label: "ID", name: "id", widget: "string" }
+                  - { label: "Type", name: "type", widget: "hidden", default: "video-with-images" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+                  - { label: "YouTube Video ID", name: "youtubeId", widget: "string", required: false }
+                  - { label: "Image Folder", name: "imageFolder", widget: "string" }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    field: { label: "Filename", name: "filename", widget: "image" }
+                  - label: "Grid Columns"
+                    name: "gridColumns"
+                    widget: "number"
+                    min: 2
+                    max: 4
+                    default: 2

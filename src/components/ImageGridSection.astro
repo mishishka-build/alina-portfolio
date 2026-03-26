@@ -1,0 +1,37 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  titleSize?: string;
+  subtitle?: string;
+  columns: number;
+  imageFolder: string;
+  images: string[];
+}
+
+const { id, title, titleSize = 'large', subtitle, columns, imageFolder, images } = Astro.props;
+
+const titleClass =
+  titleSize === 'large' ? 'section-title-large' :
+  titleSize === 'medium' ? 'section-title-medium' :
+  titleSize === 'small' ? 'section-title-small' : '';
+
+const colsClass =
+  columns === 2 ? 'cols-2' :
+  columns === 3 ? 'cols-3' : 'cols-4';
+---
+<section class="image-grid-section" id={id}>
+  {title && <h2 class={titleClass}>{title}</h2>}
+  {subtitle && <p class="section-subtitle">{subtitle}</p>}
+  <div class={`image-grid ${colsClass}`}>
+    {images.map((img: string) => (
+      <img src={`${imageFolder}${img}`} alt={`${title} - ${img}`} loading="lazy" />
+    ))}
+  </div>
+</section>
+
+<style>
+  .image-grid-section {
+    margin-bottom: 48px;
+  }
+</style>

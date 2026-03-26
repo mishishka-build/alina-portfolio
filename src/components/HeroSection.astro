@@ -1,0 +1,108 @@
+---
+const { hero } = Astro.props;
+---
+<section class="hero" id="hero">
+  <div class="hero-layout">
+    <div class="hero-photo">
+      <img src={hero.photo} alt="Alina profile" />
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-name">{hero.name}</h1>
+
+      <ul class="resume-list current">
+        {hero.resumeCurrent.map((item: string) => (
+          <li>• {item}</li>
+        ))}
+      </ul>
+
+      <ul class="resume-list past">
+        {hero.resumePast.map((item: string) => (
+          <li>• {item}</li>
+        ))}
+      </ul>
+
+      <p class="hero-quote">{hero.quote}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 100px 0 40px;
+  }
+
+  .hero-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .hero-photo {
+    flex: 0 0 314px;
+    max-width: 314px;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-name {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .resume-list {
+    list-style: none;
+    margin-bottom: 16px;
+  }
+
+  .resume-list li {
+    font-family: 'Anton', sans-serif;
+    font-size: 16px;
+    color: var(--dark);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  .resume-list.past {
+    margin-top: 12px;
+  }
+
+  .hero-quote {
+    font-family: 'Verdana', 'Geneva', sans-serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--dark);
+    line-height: 1.4;
+    margin-top: 16px;
+    max-width: 520px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-layout {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hero-photo {
+      max-width: 240px;
+    }
+    .resume-list li {
+      font-size: 14px;
+    }
+    .hero-quote {
+      font-size: 16px;
+    }
+  }
+</style>
