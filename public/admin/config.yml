@@ -20,7 +20,7 @@ collections:
             widget: "object"
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Photo", name: "photo", widget: "string" }
               - label: "Current Roles"
                 name: "resumeCurrent"
                 widget: "list"
@@ -69,7 +69,7 @@ collections:
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Filename", name: "filename", widget: "image" }
+                    field: { label: "Filename", name: "filename", widget: "string" }
 
               # Two Column
               - label: "Two Column"
@@ -94,7 +94,7 @@ collections:
                       - label: "Images"
                         name: "images"
                         widget: "list"
-                        field: { label: "Filename", name: "filename", widget: "image" }
+                        field: { label: "Filename", name: "filename", widget: "string" }
 
               # Slideshow
               - label: "Slideshow"
@@ -109,7 +109,7 @@ collections:
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Filename", name: "filename", widget: "image" }
+                    field: { label: "Filename", name: "filename", widget: "string" }
                   - { label: "YouTube Video ID", name: "youtubeId", widget: "string", required: false }
 
               # Video Single
@@ -151,7 +151,7 @@ collections:
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Filename", name: "filename", widget: "image" }
+                    field: { label: "Filename", name: "filename", widget: "string" }
                   - label: "Grid Columns"
                     name: "gridColumns"
                     widget: "number"
