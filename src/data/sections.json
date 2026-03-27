@@ -30,13 +30,87 @@
       "columns": 4,
       "imageFolder": "/images/zidans/",
       "images": [
-        "01.jpg","02.jpg","03.jpg","04.jpg",
-        "05.jpg","06.jpg","07.jpg","08.jpg",
-        "09.jpg","10.jpg","11.jpg","12.jpg",
-        "13.jpg","14.jpg","15.jpg","16.jpg",
-        "17.jpg","18.jpg","19.jpg","20.jpg",
-        "21.jpg","22.jpg","23.jpg","24.jpg",
-        "25.jpg","26.jpg","27.jpg"
+        {
+          "image": "/images/zidans/01.jpg"
+        },
+        {
+          "image": "/images/zidans/02.jpg"
+        },
+        {
+          "image": "/images/zidans/03.jpg"
+        },
+        {
+          "image": "/images/zidans/04.jpg"
+        },
+        {
+          "image": "/images/zidans/05.jpg"
+        },
+        {
+          "image": "/images/zidans/06.jpg"
+        },
+        {
+          "image": "/images/zidans/07.jpg"
+        },
+        {
+          "image": "/images/zidans/08.jpg"
+        },
+        {
+          "image": "/images/zidans/09.jpg"
+        },
+        {
+          "image": "/images/zidans/10.jpg"
+        },
+        {
+          "image": "/images/zidans/11.jpg"
+        },
+        {
+          "image": "/images/zidans/12.jpg"
+        },
+        {
+          "image": "/images/zidans/13.jpg"
+        },
+        {
+          "image": "/images/zidans/14.jpg"
+        },
+        {
+          "image": "/images/zidans/15.jpg"
+        },
+        {
+          "image": "/images/zidans/16.jpg"
+        },
+        {
+          "image": "/images/zidans/17.jpg"
+        },
+        {
+          "image": "/images/zidans/18.jpg"
+        },
+        {
+          "image": "/images/zidans/19.jpg"
+        },
+        {
+          "image": "/images/zidans/20.jpg"
+        },
+        {
+          "image": "/images/zidans/21.jpg"
+        },
+        {
+          "image": "/images/zidans/22.jpg"
+        },
+        {
+          "image": "/images/zidans/23.jpg"
+        },
+        {
+          "image": "/images/zidans/24.jpg"
+        },
+        {
+          "image": "/images/zidans/25.jpg"
+        },
+        {
+          "image": "/images/zidans/26.jpg"
+        },
+        {
+          "image": "/images/zidans/27.jpg"
+        }
       ]
     },
     {
@@ -48,14 +122,64 @@
           "titleSize": "small",
           "gridColumns": 2,
           "imageFolder": "/images/prints/",
-          "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg"]
+          "images": [
+            {
+              "image": "/images/prints/01.jpg"
+            },
+            {
+              "image": "/images/prints/02.jpg"
+            },
+            {
+              "image": "/images/prints/03.jpg"
+            },
+            {
+              "image": "/images/prints/04.jpg"
+            },
+            {
+              "image": "/images/prints/05.jpg"
+            },
+            {
+              "image": "/images/prints/06.jpg"
+            },
+            {
+              "image": "/images/prints/07.jpg"
+            },
+            {
+              "image": "/images/prints/08.jpg"
+            }
+          ]
         },
         {
           "title": "TECHNICAL SKETCHES",
           "titleSize": "small",
           "gridColumns": 2,
           "imageFolder": "/images/technical-sketches/",
-          "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg"]
+          "images": [
+            {
+              "image": "/images/technical-sketches/01.jpg"
+            },
+            {
+              "image": "/images/technical-sketches/02.jpg"
+            },
+            {
+              "image": "/images/technical-sketches/03.jpg"
+            },
+            {
+              "image": "/images/technical-sketches/04.jpg"
+            },
+            {
+              "image": "/images/technical-sketches/05.jpg"
+            },
+            {
+              "image": "/images/technical-sketches/06.jpg"
+            },
+            {
+              "image": "/images/technical-sketches/07.jpg"
+            },
+            {
+              "image": "/images/technical-sketches/08.jpg"
+            }
+          ]
         }
       ]
     },
@@ -67,9 +191,72 @@
       "columns": 4,
       "imageFolder": "/images/popmolly/",
       "images": [
-        "01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg",
-        "08.jpg","09.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg",
-        "15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg"
+        {
+          "image": "/images/popmolly/01.jpg"
+        },
+        {
+          "image": "/images/popmolly/02.jpg"
+        },
+        {
+          "image": "/images/popmolly/03.jpg"
+        },
+        {
+          "image": "/images/popmolly/04.jpg"
+        },
+        {
+          "image": "/images/popmolly/05.jpg"
+        },
+        {
+          "image": "/images/popmolly/06.jpg"
+        },
+        {
+          "image": "/images/popmolly/07.jpg"
+        },
+        {
+          "image": "/images/popmolly/08.jpg"
+        },
+        {
+          "image": "/images/popmolly/09.jpg"
+        },
+        {
+          "image": "/images/popmolly/10.jpg"
+        },
+        {
+          "image": "/images/popmolly/11.jpg"
+        },
+        {
+          "image": "/images/popmolly/12.jpg"
+        },
+        {
+          "image": "/images/popmolly/13.jpg"
+        },
+        {
+          "image": "/images/popmolly/14.jpg"
+        },
+        {
+          "image": "/images/popmolly/15.jpg"
+        },
+        {
+          "image": "/images/popmolly/16.jpg"
+        },
+        {
+          "image": "/images/popmolly/17.jpg"
+        },
+        {
+          "image": "/images/popmolly/18.jpg"
+        },
+        {
+          "image": "/images/popmolly/19.jpg"
+        },
+        {
+          "image": "/images/popmolly/20.jpg"
+        },
+        {
+          "image": "/images/popmolly/21.jpg"
+        },
+        {
+          "image": "/images/popmolly/22.jpg"
+        }
       ]
     },
     {
@@ -80,9 +267,60 @@
       "columns": 4,
       "imageFolder": "/images/mockups/",
       "images": [
-        "01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg",
-        "08.jpg","09.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg",
-        "15.jpg","16.jpg","17.jpg","18.jpg"
+        {
+          "image": "/images/mockups/01.jpg"
+        },
+        {
+          "image": "/images/mockups/02.jpg"
+        },
+        {
+          "image": "/images/mockups/03.jpg"
+        },
+        {
+          "image": "/images/mockups/04.jpg"
+        },
+        {
+          "image": "/images/mockups/05.jpg"
+        },
+        {
+          "image": "/images/mockups/06.jpg"
+        },
+        {
+          "image": "/images/mockups/07.jpg"
+        },
+        {
+          "image": "/images/mockups/08.jpg"
+        },
+        {
+          "image": "/images/mockups/09.jpg"
+        },
+        {
+          "image": "/images/mockups/10.jpg"
+        },
+        {
+          "image": "/images/mockups/11.jpg"
+        },
+        {
+          "image": "/images/mockups/12.jpg"
+        },
+        {
+          "image": "/images/mockups/13.jpg"
+        },
+        {
+          "image": "/images/mockups/14.jpg"
+        },
+        {
+          "image": "/images/mockups/15.jpg"
+        },
+        {
+          "image": "/images/mockups/16.jpg"
+        },
+        {
+          "image": "/images/mockups/17.jpg"
+        },
+        {
+          "image": "/images/mockups/18.jpg"
+        }
       ]
     },
     {
@@ -92,7 +330,17 @@
       "titleSize": "small",
       "columns": 3,
       "imageFolder": "/images/sketches-1/",
-      "images": ["01.jpg","02.jpg","03.jpg"]
+      "images": [
+        {
+          "image": "/images/sketches-1/01.jpg"
+        },
+        {
+          "image": "/images/sketches-1/02.jpg"
+        },
+        {
+          "image": "/images/sketches-1/03.jpg"
+        }
+      ]
     },
     {
       "id": "sketches-fashion",
@@ -107,9 +355,57 @@
       "columns": 3,
       "imageFolder": "/images/sketches-2/",
       "images": [
-        "01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg",
-        "08.jpg","09.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg",
-        "15.jpg","16.jpg","17.jpg"
+        {
+          "image": "/images/sketches-2/01.jpg"
+        },
+        {
+          "image": "/images/sketches-2/02.jpg"
+        },
+        {
+          "image": "/images/sketches-2/03.jpg"
+        },
+        {
+          "image": "/images/sketches-2/04.jpg"
+        },
+        {
+          "image": "/images/sketches-2/05.jpg"
+        },
+        {
+          "image": "/images/sketches-2/06.jpg"
+        },
+        {
+          "image": "/images/sketches-2/07.jpg"
+        },
+        {
+          "image": "/images/sketches-2/08.jpg"
+        },
+        {
+          "image": "/images/sketches-2/09.jpg"
+        },
+        {
+          "image": "/images/sketches-2/10.jpg"
+        },
+        {
+          "image": "/images/sketches-2/11.jpg"
+        },
+        {
+          "image": "/images/sketches-2/12.jpg"
+        },
+        {
+          "image": "/images/sketches-2/13.jpg"
+        },
+        {
+          "image": "/images/sketches-2/14.jpg"
+        },
+        {
+          "image": "/images/sketches-2/15.jpg"
+        },
+        {
+          "image": "/images/sketches-2/16.jpg"
+        },
+        {
+          "image": "/images/sketches-2/17.jpg"
+        }
       ]
     },
     {
@@ -123,15 +419,46 @@
       "title": "EXEED LX",
       "titleSize": "medium",
       "imageFolder": "/images/exeed/",
-      "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg"],
+      "images": [
+        {
+          "image": "/images/exeed/01.jpg"
+        },
+        {
+          "image": "/images/exeed/02.jpg"
+        },
+        {
+          "image": "/images/exeed/03.jpg"
+        },
+        {
+          "image": "/images/exeed/04.jpg"
+        },
+        {
+          "image": "/images/exeed/05.jpg"
+        },
+        {
+          "image": "/images/exeed/06.jpg"
+        },
+        {
+          "image": "/images/exeed/07.jpg"
+        },
+        {
+          "image": "/images/exeed/08.jpg"
+        }
+      ],
       "youtubeId": "ewbGDStBcXE"
     },
     {
       "id": "vivo-openbank",
       "type": "video-row",
       "items": [
-        { "title": "VIVO", "youtubeId": "E8E-DDY_Hz8" },
-        { "title": "OPEN BANK", "youtubeId": "MD6erBbydTQ" }
+        {
+          "title": "VIVO",
+          "youtubeId": "E8E-DDY_Hz8"
+        },
+        {
+          "title": "OPEN BANK",
+          "youtubeId": "MD6erBbydTQ"
+        }
       ]
     },
     {
@@ -152,7 +479,29 @@
       "subtitle": "MUSIC VIDEO",
       "youtubeId": "bJhFtJ7CHy4",
       "imageFolder": "/images/yana-maron/",
-      "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg"],
+      "images": [
+        {
+          "image": "/images/yana-maron/01.jpg"
+        },
+        {
+          "image": "/images/yana-maron/02.jpg"
+        },
+        {
+          "image": "/images/yana-maron/03.jpg"
+        },
+        {
+          "image": "/images/yana-maron/04.jpg"
+        },
+        {
+          "image": "/images/yana-maron/05.jpg"
+        },
+        {
+          "image": "/images/yana-maron/06.jpg"
+        },
+        {
+          "image": "/images/yana-maron/07.jpg"
+        }
+      ],
       "gridColumns": 3
     },
     {
@@ -163,7 +512,17 @@
       "titleSize": "medium",
       "columns": 3,
       "imageFolder": "/images/fucking-birthday/",
-      "images": ["01.jpg","02.jpg","03.jpg"]
+      "images": [
+        {
+          "image": "/images/fucking-birthday/01.jpg"
+        },
+        {
+          "image": "/images/fucking-birthday/02.jpg"
+        },
+        {
+          "image": "/images/fucking-birthday/03.jpg"
+        }
+      ]
     },
     {
       "id": "oqjav",
@@ -172,7 +531,32 @@
       "subtitle": "MUSIC VIDEO",
       "youtubeId": "VopcuxrYft4",
       "imageFolder": "/images/oqjav/",
-      "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg"],
+      "images": [
+        {
+          "image": "/images/oqjav/01.jpg"
+        },
+        {
+          "image": "/images/oqjav/02.jpg"
+        },
+        {
+          "image": "/images/oqjav/03.jpg"
+        },
+        {
+          "image": "/images/oqjav/04.jpg"
+        },
+        {
+          "image": "/images/oqjav/05.jpg"
+        },
+        {
+          "image": "/images/oqjav/06.jpg"
+        },
+        {
+          "image": "/images/oqjav/07.jpg"
+        },
+        {
+          "image": "/images/oqjav/08.jpg"
+        }
+      ],
       "gridColumns": 2
     },
     {
@@ -182,7 +566,32 @@
       "subtitle": "MUSIC VIDEO",
       "youtubeId": "",
       "imageFolder": "/images/lucidvox/",
-      "images": ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg"],
+      "images": [
+        {
+          "image": "/images/lucidvox/01.jpg"
+        },
+        {
+          "image": "/images/lucidvox/02.jpg"
+        },
+        {
+          "image": "/images/lucidvox/03.jpg"
+        },
+        {
+          "image": "/images/lucidvox/04.jpg"
+        },
+        {
+          "image": "/images/lucidvox/05.jpg"
+        },
+        {
+          "image": "/images/lucidvox/06.jpg"
+        },
+        {
+          "image": "/images/lucidvox/07.jpg"
+        },
+        {
+          "image": "/images/lucidvox/08.jpg"
+        }
+      ],
       "gridColumns": 2
     }
   ]

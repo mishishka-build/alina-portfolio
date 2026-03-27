@@ -65,7 +65,8 @@ collections:
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Image", name: "image", widget: "image" }
+                    fields:
+                      - { label: "Image", name: "image", widget: "image" }
 
               - label: "Two Column"
                 name: "two-column"
@@ -89,7 +90,8 @@ collections:
                       - label: "Images"
                         name: "images"
                         widget: "list"
-                        field: { label: "Image", name: "image", widget: "image" }
+                        fields:
+                          - { label: "Image", name: "image", widget: "image" }
 
               - label: "Slideshow"
                 name: "slideshow"
@@ -103,7 +105,8 @@ collections:
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Image", name: "image", widget: "image" }
+                    fields:
+                      - { label: "Image", name: "image", widget: "image" }
                   - { label: "YouTube Video ID", name: "youtubeId", widget: "string", required: false }
 
               - label: "Video (Single)"
@@ -142,7 +145,8 @@ collections:
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Image", name: "image", widget: "image" }
+                    fields:
+                      - { label: "Image", name: "image", widget: "image" }
                   - label: "Grid Columns"
                     name: "gridColumns"
                     widget: "number"
