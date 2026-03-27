@@ -14,29 +14,26 @@ collections:
         file: "src/data/sections.json"
         format: "json"
         fields:
-          # ---- HERO ----
           - label: "Hero"
             name: "hero"
             widget: "object"
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Photo", name: "photo", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image" }
               - label: "Current Roles"
                 name: "resumeCurrent"
                 widget: "list"
-                field: { label: "Item", name: "item", widget: "string" }
+                field: { label: "Item", widget: "string" }
               - label: "Past Roles"
                 name: "resumePast"
                 widget: "list"
-                field: { label: "Item", name: "item", widget: "string" }
+                field: { label: "Item", widget: "string" }
               - { label: "Quote", name: "quote", widget: "text" }
 
-          # ---- SECTIONS ----
           - label: "Sections"
             name: "sections"
             widget: "list"
             types:
-              # Divider section
               - label: "Section Divider"
                 name: "divider"
                 widget: "object"
@@ -45,7 +42,6 @@ collections:
                   - { label: "Type", name: "type", widget: "hidden", default: "divider" }
                   - { label: "Title", name: "title", widget: "string" }
 
-              # Image Grid
               - label: "Image Grid"
                 name: "image-grid"
                 widget: "object"
@@ -65,13 +61,12 @@ collections:
                     min: 2
                     max: 4
                     default: 4
-                  - { label: "Image Folder", name: "imageFolder", widget: "string" }
+                  - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Keep it for old entries. New image picks will save full /images/... paths." }
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Filename", name: "filename", widget: "string" }
+                    field: { label: "Image", widget: "image" }
 
-              # Two Column
               - label: "Two Column"
                 name: "two-column"
                 widget: "object"
@@ -90,13 +85,12 @@ collections:
                         options: ["large", "medium", "small"]
                         default: "small"
                       - { label: "Grid Columns", name: "gridColumns", widget: "number", min: 2, max: 4, default: 2 }
-                      - { label: "Image Folder", name: "imageFolder", widget: "string" }
+                      - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Keep it for old entries. New image picks will save full /images/... paths." }
                       - label: "Images"
                         name: "images"
                         widget: "list"
-                        field: { label: "Filename", name: "filename", widget: "string" }
+                        field: { label: "Image", widget: "image" }
 
-              # Slideshow
               - label: "Slideshow"
                 name: "slideshow"
                 widget: "object"
@@ -105,14 +99,13 @@ collections:
                   - { label: "Type", name: "type", widget: "hidden", default: "slideshow" }
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Title Size", name: "titleSize", widget: "select", options: ["large","medium","small"], default: "medium" }
-                  - { label: "Image Folder", name: "imageFolder", widget: "string" }
+                  - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Keep it for old entries. New image picks will save full /images/... paths." }
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Filename", name: "filename", widget: "string" }
+                    field: { label: "Image", widget: "image" }
                   - { label: "YouTube Video ID", name: "youtubeId", widget: "string", required: false }
 
-              # Video Single
               - label: "Video (Single)"
                 name: "video-single"
                 widget: "object"
@@ -122,7 +115,6 @@ collections:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "YouTube Video ID", name: "youtubeId", widget: "string" }
 
-              # Video Row (side by side)
               - label: "Video Row"
                 name: "video-row"
                 widget: "object"
@@ -137,7 +129,6 @@ collections:
                       - { label: "Title", name: "title", widget: "string" }
                       - { label: "YouTube Video ID", name: "youtubeId", widget: "string" }
 
-              # Video with Image Gallery
               - label: "Video + Images"
                 name: "video-with-images"
                 widget: "object"
@@ -147,11 +138,11 @@ collections:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
                   - { label: "YouTube Video ID", name: "youtubeId", widget: "string", required: false }
-                  - { label: "Image Folder", name: "imageFolder", widget: "string" }
+                  - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Keep it for old entries. New image picks will save full /images/... paths." }
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Filename", name: "filename", widget: "string" }
+                    field: { label: "Image", widget: "image" }
                   - label: "Grid Columns"
                     name: "gridColumns"
                     widget: "number"

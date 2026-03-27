@@ -6,6 +6,9 @@ import ImageGridSection from '../components/ImageGridSection.astro';
 import VideoSection from '../components/VideoSection.astro';
 import SlideshowSection from '../components/SlideshowSection.astro';
 import data from '../data/sections.json';
+
+const resolveImageSrc = (image: string, imageFolder = '') =>
+  image?.startsWith('/') ? image : `${imageFolder}${image}`;
 ---
 <Layout title="alinenigam">
 
@@ -35,10 +38,16 @@ import data from '../data/sections.json';
         <section class="two-col-section" style="display:grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px;">
           {section.columns.map((col) => (
             <div>
-              <h3 class={col.titleSize === 'small' ? 'section-title-small' : 'section-title-medium'}>{col.title}</h3>
+              <h3 class={col.titleSize === 'small' ? 'section-title-small' : 'section-title-medium'}>
+                {col.title}
+              </h3>
               <div class={`image-grid cols-${col.gridColumns}`}>
                 {col.images.map((img) => (
-                  <img src={`${col.imageFolder}${img}`} alt={`${col.title} - ${img}`} loading="lazy" />
+                  <img
+                    src={resolveImageSrc(img, col.imageFolder)}
+                    alt={`${col.title} - ${img}`}
+                    loading="lazy"
+                  />
                 ))}
               </div>
             </div>

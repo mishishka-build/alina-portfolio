@@ -2,12 +2,15 @@
 interface Props {
   id: string;
   title: string;
-  imageFolder: string;
+  imageFolder?: string;
   images: string[];
   youtubeId?: string;
 }
 
-const { id, title, imageFolder, images, youtubeId } = Astro.props;
+const { id, title, imageFolder = '', images, youtubeId } = Astro.props;
+
+const resolveImageSrc = (image: string) =>
+  image?.startsWith('/') ? image : `${imageFolder}${image}`;
 ---
 <section class="slideshow-section" id={id}>
   <h2 class="section-title-medium">{title}</h2>
@@ -15,7 +18,7 @@ const { id, title, imageFolder, images, youtubeId } = Astro.props;
   <div class="slideshow" data-slideshow>
     <div class="slideshow-track" data-track>
       {images.map((img: string, i: number) => (
-        <img src={`${imageFolder}${img}`} alt={`${title} slide ${i + 1}`} loading="lazy" />
+        <img src={resolveImageSrc(img)} alt={`${title} slide ${i + 1}`} loading="lazy" />
       ))}
     </div>
     <div class="slideshow-counter">

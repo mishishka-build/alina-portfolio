@@ -15,9 +15,12 @@ interface Props {
   gridColumns?: number;
 }
 
-const { type, title, subtitle, youtubeId, items, imageFolder, images, gridColumns = 2 } = Astro.props;
+const { type, title, subtitle, youtubeId, items, imageFolder = '', images, gridColumns = 2 } = Astro.props;
 
 const colsClass = gridColumns === 3 ? 'cols-3' : 'cols-2';
+
+const resolveImageSrc = (image: string) =>
+  image?.startsWith('/') ? image : `${imageFolder}${image}`;
 ---
 
 {type === 'video-single' && (
@@ -71,7 +74,7 @@ const colsClass = gridColumns === 3 ? 'cols-3' : 'cols-2';
     {images && images.length > 0 && (
       <div class={`image-grid ${colsClass}`}>
         {images.map((img: string) => (
-          <img src={`${imageFolder}${img}`} alt={`${title} - ${img}`} loading="lazy" />
+          <img src={resolveImageSrc(img)} alt={`${title} - ${img}`} loading="lazy" />
         ))}
       </div>
     )}
