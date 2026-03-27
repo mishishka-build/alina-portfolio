@@ -11,16 +11,27 @@ interface Props {
   youtubeId?: string;
   items?: VideoItem[];
   imageFolder?: string;
-  images?: string[];
+  images?: Array<string | { image?: string }>;
   gridColumns?: number;
 }
 
-const { type, title, subtitle, youtubeId, items, imageFolder = '', images, gridColumns = 2 } = Astro.props;
+const {
+  type,
+  title,
+  subtitle,
+  youtubeId,
+  items,
+  imageFolder = '',
+  images,
+  gridColumns = 2,
+} = Astro.props;
 
 const colsClass = gridColumns === 3 ? 'cols-3' : 'cols-2';
 
-const resolveImageSrc = (image: string) =>
-  image?.startsWith('/') ? image : `${imageFolder}${image}`;
+const resolveImageSrc = (image: string | { image?: string }) => {
+  const value = typeof image === 'string' ? image : image?.image || '';
+  return value.startsWith('/') ? value : `${imageFolder}${value}`;
+};
 ---
 
 {type === 'video-single' && (
@@ -40,7 +51,7 @@ const resolveImageSrc = (image: string) =>
 {type === 'video-row' && (
   <section class="video-row-section">
     <div class="two-col" style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-      {items?.map((item: VideoItem) => (
+      {items?.map((item) => (
         <div>
           <h2 class="section-title-medium">{item.title}</h2>
           <div class="video-embed">
@@ -73,8 +84,8 @@ const resolveImageSrc = (image: string) =>
     )}
     {images && images.length > 0 && (
       <div class={`image-grid ${colsClass}`}>
-        {images.map((img: string) => (
-          <img src={resolveImageSrc(img)} alt={`${title} - ${img}`} loading="lazy" />
+        {images.map((img) => (
+          <img src={resolveImageSrc(img)} alt={title} loading="lazy" />
         ))}
       </div>
     )}

@@ -23,11 +23,11 @@ collections:
               - label: "Current Roles"
                 name: "resumeCurrent"
                 widget: "list"
-                field: { label: "Item", widget: "string" }
+                field: { label: "Item", name: "item", widget: "string" }
               - label: "Past Roles"
                 name: "resumePast"
                 widget: "list"
-                field: { label: "Item", widget: "string" }
+                field: { label: "Item", name: "item", widget: "string" }
               - { label: "Quote", name: "quote", widget: "text" }
 
           - label: "Sections"
@@ -61,11 +61,11 @@ collections:
                     min: 2
                     max: 4
                     default: 4
-                  - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Keep it for old entries. New image picks will save full /images/... paths." }
+                  - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Existing entries may still use bare filenames." }
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Image", widget: "image" }
+                    field: { label: "Image", name: "image", widget: "image" }
 
               - label: "Two Column"
                 name: "two-column"
@@ -85,11 +85,11 @@ collections:
                         options: ["large", "medium", "small"]
                         default: "small"
                       - { label: "Grid Columns", name: "gridColumns", widget: "number", min: 2, max: 4, default: 2 }
-                      - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Keep it for old entries. New image picks will save full /images/... paths." }
+                      - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Existing entries may still use bare filenames." }
                       - label: "Images"
                         name: "images"
                         widget: "list"
-                        field: { label: "Image", widget: "image" }
+                        field: { label: "Image", name: "image", widget: "image" }
 
               - label: "Slideshow"
                 name: "slideshow"
@@ -98,12 +98,12 @@ collections:
                   - { label: "ID", name: "id", widget: "string" }
                   - { label: "Type", name: "type", widget: "hidden", default: "slideshow" }
                   - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Title Size", name: "titleSize", widget: "select", options: ["large","medium","small"], default: "medium" }
-                  - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Keep it for old entries. New image picks will save full /images/... paths." }
+                  - { label: "Title Size", name: "titleSize", widget: "select", options: ["large", "medium", "small"], default: "medium" }
+                  - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Existing entries may still use bare filenames." }
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Image", widget: "image" }
+                    field: { label: "Image", name: "image", widget: "image" }
                   - { label: "YouTube Video ID", name: "youtubeId", widget: "string", required: false }
 
               - label: "Video (Single)"
@@ -138,11 +138,11 @@ collections:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
                   - { label: "YouTube Video ID", name: "youtubeId", widget: "string", required: false }
-                  - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Keep it for old entries. New image picks will save full /images/... paths." }
+                  - { label: "Image Folder", name: "imageFolder", widget: "string", required: false, hint: "Legacy support only. Existing entries may still use bare filenames." }
                   - label: "Images"
                     name: "images"
                     widget: "list"
-                    field: { label: "Image", widget: "image" }
+                    field: { label: "Image", name: "image", widget: "image" }
                   - label: "Grid Columns"
                     name: "gridColumns"
                     widget: "number"

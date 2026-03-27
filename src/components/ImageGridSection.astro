@@ -6,10 +6,18 @@ interface Props {
   subtitle?: string;
   columns: number;
   imageFolder?: string;
-  images: string[];
+  images: Array<string | { image?: string }>;
 }
 
-const { id, title, titleSize = 'large', subtitle, columns, imageFolder = '', images } = Astro.props;
+const {
+  id,
+  title,
+  titleSize = 'large',
+  subtitle,
+  columns,
+  imageFolder = '',
+  images,
+} = Astro.props;
 
 const titleClass =
   titleSize === 'large' ? 'section-title-large' :
@@ -20,15 +28,17 @@ const colsClass =
   columns === 2 ? 'cols-2' :
   columns === 3 ? 'cols-3' : 'cols-4';
 
-const resolveImageSrc = (image: string) =>
-  image?.startsWith('/') ? image : `${imageFolder}${image}`;
+const resolveImageSrc = (image: string | { image?: string }) => {
+  const value = typeof image === 'string' ? image : image?.image || '';
+  return value.startsWith('/') ? value : `${imageFolder}${value}`;
+};
 ---
 <section class="image-grid-section" id={id}>
   {title && <h2 class={titleClass}>{title}</h2>}
   {subtitle && <p class="section-subtitle">{subtitle}</p>}
   <div class={`image-grid ${colsClass}`}>
-    {images.map((img: string) => (
-      <img src={resolveImageSrc(img)} alt={`${title} - ${img}`} loading="lazy" />
+    {images.map((img) => (
+      <img src={resolveImageSrc(img)} alt={title} loading="lazy" />
     ))}
   </div>
 </section>

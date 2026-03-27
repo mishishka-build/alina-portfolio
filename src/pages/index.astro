@@ -7,8 +7,13 @@ import VideoSection from '../components/VideoSection.astro';
 import SlideshowSection from '../components/SlideshowSection.astro';
 import data from '../data/sections.json';
 
-const resolveImageSrc = (image: string, imageFolder = '') =>
-  image?.startsWith('/') ? image : `${imageFolder}${image}`;
+const resolveImageSrc = (
+  image: string | { image?: string },
+  imageFolder = ''
+) => {
+  const value = typeof image === 'string' ? image : image?.image || '';
+  return value.startsWith('/') ? value : `${imageFolder}${value}`;
+};
 ---
 <Layout title="alinenigam">
 
@@ -45,7 +50,7 @@ const resolveImageSrc = (image: string, imageFolder = '') =>
                 {col.images.map((img) => (
                   <img
                     src={resolveImageSrc(img, col.imageFolder)}
-                    alt={`${col.title} - ${img}`}
+                    alt={col.title}
                     loading="lazy"
                   />
                 ))}
@@ -68,7 +73,11 @@ const resolveImageSrc = (image: string, imageFolder = '') =>
       );
     }
 
-    if (section.type === 'video-single' || section.type === 'video-row' || section.type === 'video-with-images') {
+    if (
+      section.type === 'video-single' ||
+      section.type === 'video-row' ||
+      section.type === 'video-with-images'
+    ) {
       return (
         <VideoSection
           type={section.type}
