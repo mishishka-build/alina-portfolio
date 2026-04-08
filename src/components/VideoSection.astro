@@ -6,6 +6,7 @@ interface VideoItem {
 
 interface Props {
   type: 'video-single' | 'video-row' | 'video-with-images';
+  layout?: string;
   title?: string;
   subtitle?: string;
   youtubeId?: string;
@@ -17,6 +18,7 @@ interface Props {
 
 const {
   type,
+  layout,
   title,
   subtitle,
   youtubeId,
@@ -32,6 +34,20 @@ const resolveImageSrc = (image: string | { image?: string }) => {
   const value = typeof image === 'string' ? image : image?.image || '';
   return value.startsWith('/') ? value : `${imageFolder}${value}`;
 };
+
+// For mosaic layout: assign images to zones
+// images[0] = center tall portrait
+// images[1], images[2] = right grid row 1
+// images[3] = left bottom small portrait
+// images[4] = left bottom wide
+// images[5], images[6] = right grid row 2
+const centerImg   = images?.[0];
+const rightImg1   = images?.[1];
+const rightImg2   = images?.[2];
+const leftBottomA = images?.[3];
+const leftBottomB = images?.[4];
+const rightImg3   = images?.[5];
+const rightImg4   = images?.[6];
 ---
 
 {type === 'video-single' && (
@@ -68,7 +84,51 @@ const resolveImageSrc = (image: string | { image?: string }) => {
   </section>
 )}
 
-{type === 'video-with-images' && (
+{type === 'video-with-images' && layout === 'mosaic' && (
+  <section class="video-images-section mosaic-section" id={title?.toLowerCase().replace(/\s+/g, '-')}>
+    <h2 class="section-title-medium">{title}</h2>
+    {subtitle && <p class="section-subtitle">{subtitle}</p>}
+
+    <div class="mosaic-layout">
+
+      <!-- LEFT ZONE: video on top, two images below -->
+      <div class="mosaic-left">
+        {youtubeId ? (
+          <div class="mosaic-video">
+            <iframe
+              src={`https://www.youtube.com/embed/${youtubeId}`}
+              title={title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        ) : (
+          <div class="mosaic-video mosaic-video-placeholder"></div>
+        )}
+        <div class="mosaic-left-bottom">
+          {leftBottomA && <img src={resolveImageSrc(leftBottomA)} alt={title} loading="lazy" class="mosaic-bottom-a" />}
+          {leftBottomB && <img src={resolveImageSrc(leftBottomB)} alt={title} loading="lazy" class="mosaic-bottom-b" />}
+        </div>
+      </div>
+
+      <!-- CENTER ZONE: tall portrait -->
+      <div class="mosaic-center">
+        {centerImg && <img src={resolveImageSrc(centerImg)} alt={title} loading="lazy" />}
+      </div>
+
+      <!-- RIGHT ZONE: 2×2 tight grid -->
+      <div class="mosaic-right">
+        {rightImg1 && <img src={resolveImageSrc(rightImg1)} alt={title} loading="lazy" />}
+        {rightImg2 && <img src={resolveImageSrc(rightImg2)} alt={title} loading="lazy" />}
+        {rightImg3 && <img src={resolveImageSrc(rightImg3)} alt={title} loading="lazy" />}
+        {rightImg4 && <img src={resolveImageSrc(rightImg4)} alt={title} loading="lazy" />}
+      </div>
+
+    </div>
+  </section>
+)}
+
+{type === 'video-with-images' && layout !== 'mosaic' && (
   <section class="video-images-section" id={title?.toLowerCase().replace(/\s+/g, '-')}>
     <h2 class="section-title-medium">{title}</h2>
     {subtitle && <p class="section-subtitle">{subtitle}</p>}
@@ -97,5 +157,93 @@ const resolveImageSrc = (image: string | { image?: string }) => {
   .video-row-section,
   .video-images-section {
     margin-bottom: 48px;
+  }
+
+  /* ===== MOSAIC LAYOUT (Yana Maron) ===== */
+  .mosaic-layout {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  /* --- LEFT zone: 42% wide, column flex --- */
+  .mosaic-left {
+    flex: 0 0 42%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* Video: 16:9 ratio within left zone */
+  .mosaic-video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #111;
+    flex-shrink: 0;
+  }
+
+  .mosaic-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .mosaic-video-placeholder {
+    background: #222;
+  }
+
+  /* Bottom row of left zone */
+  .mosaic-left-bottom {
+    display: flex;
+    flex: 1;
+    gap: 4px;
+    min-height: 120px;
+  }
+
+  .mosaic-bottom-a {
+    flex: 0 0 38%;
+    width: 38%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .mosaic-bottom-b {
+    flex: 1;
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* --- CENTER zone: 23% wide, full-height portrait --- */
+  .mosaic-center {
+    flex: 0 0 23%;
+  }
+
+  .mosaic-center img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* --- RIGHT zone: 2-column tight grid --- */
+  .mosaic-right {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .mosaic-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 </style>
