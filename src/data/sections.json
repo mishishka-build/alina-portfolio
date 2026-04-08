@@ -189,6 +189,8 @@
       "title": "POPMOLLY",
       "titleSize": "medium",
       "columns": 4,
+      "layout": "inline",
+      "rowHeight": 200,
       "imageFolder": "/images/popmolly/",
       "images": [
         {
@@ -266,7 +268,7 @@
       "titleSize": "small",
       "columns": 4,
       "layout": "inline",
-      "rowHeight": 220,
+      "rowHeight": 200,
       "imageFolder": "/images/mockups/",
       "images": [
         {
@@ -355,6 +357,8 @@
       "title": "",
       "titleSize": "none",
       "columns": 3,
+      "layout": "inline",
+      "rowHeight": 280,
       "imageFolder": "/images/sketches-2/",
       "images": [
         {
