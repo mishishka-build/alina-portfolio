@@ -5,6 +5,8 @@ interface Props {
   titleSize?: string;
   subtitle?: string;
   columns: number;
+  layout?: string;
+  rowHeight?: number;
   imageFolder?: string;
   images: Array<string | { image?: string }>;
 }
@@ -15,6 +17,8 @@ const {
   titleSize = 'large',
   subtitle,
   columns,
+  layout = 'grid',
+  rowHeight = 220,
   imageFolder = '',
   images,
 } = Astro.props;
@@ -36,15 +40,36 @@ const resolveImageSrc = (image: string | { image?: string }) => {
 <section class="image-grid-section" id={id}>
   {title && <h2 class={titleClass}>{title}</h2>}
   {subtitle && <p class="section-subtitle">{subtitle}</p>}
-  <div class={`image-grid ${colsClass}`}>
-    {images.map((img) => (
-      <img src={resolveImageSrc(img)} alt={title} loading="lazy" />
-    ))}
-  </div>
+  {layout === 'inline' ? (
+    <div class="image-inline" style={`--row-height: ${rowHeight}px`}>
+      {images.map((img) => (
+        <img src={resolveImageSrc(img)} alt={title} loading="lazy" />
+      ))}
+    </div>
+  ) : (
+    <div class={`image-grid ${colsClass}`}>
+      {images.map((img) => (
+        <img src={resolveImageSrc(img)} alt={title} loading="lazy" />
+      ))}
+    </div>
+  )}
 </section>
 
 <style>
   .image-grid-section {
     margin-bottom: 48px;
+  }
+
+  .image-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .image-inline img {
+    height: var(--row-height, 220px);
+    width: auto;
+    flex-grow: 1;
+    object-fit: cover;
   }
 </style>

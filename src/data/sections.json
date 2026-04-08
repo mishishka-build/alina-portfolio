@@ -265,6 +265,8 @@
       "title": "MOCKUPS",
       "titleSize": "small",
       "columns": 4,
+      "layout": "inline",
+      "rowHeight": 220,
       "imageFolder": "/images/mockups/",
       "images": [
         {
