@@ -10,8 +10,15 @@ function download(url, dest) {
     const file = fs.createWriteStream(dest);
     const client = url.startsWith('https') ? https : http;
     client.get(url, (response) => {
-      if (response.statusCode === 301 || response.statusCode === 302) {
+      if (response.statusCode === 301 || response.statusCode === 302 || response.statusCode === 307 || response.statusCode === 308) {
+        file.close();
+        fs.unlink(dest, () => {});
         return download(response.headers.location, dest).then(resolve).catch(reject);
+      }
+      if (response.statusCode !== 200) {
+        file.close();
+        fs.unlink(dest, () => {});
+        return reject(new Error('HTTP ' + response.statusCode));
       }
       response.pipe(file);
       file.on('finish', () => { file.close(resolve); });
@@ -20,6 +27,20 @@ function download(url, dest) {
       reject(err);
     });
   });
+}
+
+async function downloadWithFallback(url, dest) {
+  try {
+    await download(url, dest);
+  } catch (e) {
+    // Retry without query parameters (CDN may reject specific size/format combos)
+    const baseUrl = url.split('?')[0];
+    if (baseUrl !== url) {
+      await download(baseUrl, dest);
+    } else {
+      throw e;
+    }
+  }
 }
 
 const images = {
@@ -186,14 +207,20 @@ const images = {
 
 async function main() {
   const base = 'public/images';
+  const MIN_VALID_SIZE = 1000; // files smaller than 1KB are likely error responses
   for (const [section, urls] of Object.entries(images)) {
     console.log('Downloading ' + section + ' (' + urls.length + ' images)...');
     for (let i = 0; i < urls.length; i++) {
       const num = String(i + 1).padStart(2, '0');
       const ext = urls[i].includes('.png') ? 'png' : 'jpg';
       const dest = path.join(base, section, num + '.' + ext);
+      // Skip files that already exist and look valid
+      if (fs.existsSync(dest) && fs.statSync(dest).size >= MIN_VALID_SIZE) {
+        console.log('  skip: ' + dest + ' (already exists)');
+        continue;
+      }
       try {
-        await download(urls[i], dest);
+        await downloadWithFallback(urls[i], dest);
         console.log('  done: ' + dest);
       } catch (e) {
         console.error('  fail: ' + dest + ': ' + e.message);
