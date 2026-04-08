@@ -481,6 +481,7 @@
     {
       "id": "yana-maron",
       "type": "video-with-images",
+      "layout": "mosaic",
       "title": "YANA MARON",
       "subtitle": "MUSIC VIDEO",
       "youtubeId": "bJhFtJ7CHy4",

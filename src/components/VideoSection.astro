@@ -6,6 +6,7 @@ interface VideoItem {
 
 interface Props {
   type: 'video-single' | 'video-row' | 'video-with-images';
+  layout?: string;
   title?: string;
   subtitle?: string;
   youtubeId?: string;
@@ -17,6 +18,7 @@ interface Props {
 
 const {
   type,
+  layout,
   title,
   subtitle,
   youtubeId,
@@ -68,7 +70,29 @@ const resolveImageSrc = (image: string | { image?: string }) => {
   </section>
 )}
 
-{type === 'video-with-images' && (
+{type === 'video-with-images' && layout === 'mosaic' && (
+  <section class="video-images-section" id={title?.toLowerCase().replace(/\s+/g, '-')}>
+    <h2 class="section-title-medium">{title}</h2>
+    {subtitle && <p class="section-subtitle">{subtitle}</p>}
+    <div class="mosaic">
+      {youtubeId && (
+        <div class="mosaic-video">
+          <iframe
+            src={`https://www.youtube.com/embed/${youtubeId}`}
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      )}
+      {images && images.map((img, i) => (
+        <img class={`mi mi-${i + 1}`} src={resolveImageSrc(img)} alt={title} loading="lazy" />
+      ))}
+    </div>
+  </section>
+)}
+
+{type === 'video-with-images' && layout !== 'mosaic' && (
   <section class="video-images-section" id={title?.toLowerCase().replace(/\s+/g, '-')}>
     <h2 class="section-title-medium">{title}</h2>
     {subtitle && <p class="section-subtitle">{subtitle}</p>}
@@ -97,5 +121,54 @@ const resolveImageSrc = (image: string | { image?: string }) => {
   .video-row-section,
   .video-images-section {
     margin-bottom: 48px;
+  }
+
+  /* ---- Mosaic grid ---- */
+  /*
+    Layout (6 cols × 3 rows):
+    col:  1      2      3      4      5      6
+    r1: [   VIDEO (1-4)   ]  [img1 (5)] [img2 (6)]
+    r2: [   VIDEO (1-4)   ]  [img1 (5)] [img3 (6)]
+    r3: [img4(1)][  img5 (2-4)  ]  [img6 (5)] [img7 (6)]
+  */
+  .mosaic {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 230px 200px 220px;
+    gap: 4px;
+  }
+
+  /* Video: large, top-left, spans 4 cols × 2 rows */
+  .mosaic-video {
+    grid-column: 1 / 5;
+    grid-row: 1 / 3;
+  }
+  .mosaic-video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  /* img1: tall portrait col 5, spans rows 1-2 */
+  .mosaic .mi-1 { grid-column: 5; grid-row: 1 / 3; }
+  /* img2: top right corner */
+  .mosaic .mi-2 { grid-column: 6; grid-row: 1; }
+  /* img3: middle right */
+  .mosaic .mi-3 { grid-column: 6; grid-row: 2; }
+  /* img4: small bottom-left */
+  .mosaic .mi-4 { grid-column: 1; grid-row: 3; }
+  /* img5: wide bottom-center */
+  .mosaic .mi-5 { grid-column: 2 / 5; grid-row: 3; }
+  /* img6: bottom right */
+  .mosaic .mi-6 { grid-column: 5; grid-row: 3; }
+  /* img7: bottom far-right */
+  .mosaic .mi-7 { grid-column: 6; grid-row: 3; }
+
+  .mosaic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 </style>
